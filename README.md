@@ -65,7 +65,7 @@ Campus Event Buddy provides a unified platform featuring:
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/vinod1543/campus-buddy.git
    cd campus-buddy
    ```
 
