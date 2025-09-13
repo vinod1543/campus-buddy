@@ -1,0 +1,880 @@
+/* Global Styles - Human-Centered Design */
+:root {
+  /* Color Palette - Warm and Friendly */
+  --primary-blue: #4A90E2;
+  --primary-blue-light: #7BB3F0;
+  --primary-blue-dark: #357ABD;
+  
+  --secondary-green: #7ED321;
+  --secondary-green-light: #A8E86D;
+  --secondary-green-dark: #5BA617;
+  
+  --accent-orange: #F5A623;
+  --accent-orange-light: #FFB84D;
+  --accent-orange-dark: #E09100;
+  
+  --neutral-white: #FFFFFF;
+  --neutral-light: #F8F9FA;
+  --neutral-gray: #6C757D;
+  --neutral-dark: #343A40;
+  
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--neutral-dark);
+  background-color: var(--neutral-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout Components */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.container-sm {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Typography */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+
+.text-gray { color: var(--neutral-gray); }
+.text-primary { color: var(--primary-blue); }
+.text-success { color: var(--secondary-green); }
+.text-warning { color: var(--accent-orange); }
+
+/* Buttons - Friendly and Accessible */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-blue-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--neutral-white);
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.btn-success {
+  background-color: var(--secondary-green);
+  color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+  background-color: var(--secondary-green-dark);
+  transform: translateY(-1px);
+}
+
+.btn-warning {
+  background-color: var(--accent-orange);
+  color: white;
+}
+
+.btn-sm {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+.btn-lg {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-lg);
+}
+
+/* Cards - Clean and Modern */
+.card {
+  background: var(--neutral-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid #E9ECEF;
+  margin-bottom: var(--spacing-md);
+}
+
+.card-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--neutral-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.card-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--neutral-gray);
+}
+
+/* Forms - User-Friendly */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 500;
+  color: var(--neutral-dark);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 2px solid #E9ECEF;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.form-error {
+  color: #DC3545;
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-xs);
+}
+
+/* Navigation */
+.nav {
+  background: var(--neutral-white);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-md) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Navigation Bar */
+.nav {
+  background: var(--neutral-white);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--spacing-md) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+}
+
+.nav-brand {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--primary-blue);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--spacing-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--neutral-gray);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  min-height: 40px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-blue);
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+/* Profile Dropdown Alignment */
+.profile-dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.profile-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 40px !important;
+  padding: var(--spacing-sm) !important;
+  border-radius: var(--radius-md) !important;
+  transition: background-color 0.2s !important;
+}
+
+.profile-button:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Event Cards - Special Styling */
+.event-card {
+  background: var(--neutral-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-normal);
+  border-left: 4px solid transparent;
+}
+
+.event-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.event-card.technical { border-left-color: var(--primary-blue); }
+.event-card.cultural { border-left-color: #E91E63; }
+.event-card.sports { border-left-color: var(--secondary-green); }
+.event-card.academic { border-left-color: #9C27B0; }
+.event-card.club { border-left-color: var(--accent-orange); }
+
+.event-type-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.event-type-technical { 
+  background-color: rgba(74, 144, 226, 0.1); 
+  color: var(--primary-blue); 
+}
+.event-type-cultural { 
+  background-color: rgba(233, 30, 99, 0.1); 
+  color: #E91E63; 
+}
+.event-type-sports { 
+  background-color: rgba(126, 211, 33, 0.1); 
+  color: var(--secondary-green-dark); 
+}
+.event-type-academic { 
+  background-color: rgba(156, 39, 176, 0.1); 
+  color: #9C27B0; 
+}
+.event-type-club { 
+  background-color: rgba(245, 166, 35, 0.1); 
+  color: var(--accent-orange-dark); 
+}
+
+/* Utility Classes */
+.mt-auto { margin-top: auto; }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: var(--spacing-sm); }
+.gap-4 { gap: var(--spacing-lg); }
+
+.text-center { text-align: center; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* Loading States */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  color: var(--neutral-gray);
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #E9ECEF;
+  border-top: 2px solid var(--primary-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: var(--spacing-sm);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Success animation */
+.success-animation {
+  animation: successPulse 0.6s ease-out;
+}
+
+@keyframes successPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Dropdown fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Profile Menu Styles */
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-button:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.profile-menu-item:hover {
+  background-color: var(--background-light) !important;
+}
+
+.profile-menu {
+  transform-origin: top right;
+}
+
+/* Profile Page Styles */
+.profile-picture-placeholder {
+  transition: all 0.3s ease;
+}
+
+.profile-picture-placeholder:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-form-section {
+  transition: all 0.3s ease;
+}
+
+.profile-form-section:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container,
+  .container-sm {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .nav-content {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .nav-links {
+    gap: var(--spacing-md);
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .card {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Calendar Component Styles */
+.calendar-component {
+  display: inline-block;
+}
+
+.calendar-btn-small .calendar-toggle {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  min-width: 140px;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary-blue);
+  color: var(--primary-blue);
+  transition: all var(--transition-smooth);
+}
+
+.btn-outline:hover {
+  background: var(--primary-blue);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Calendar dropdown positioning for mobile */
+@media (max-width: 768px) {
+  .calendar-component .calendar-dropdown {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 320px;
+    z-index: 1001;
+  }
+  
+  .calendar-component .calendar-backdrop {
+    z-index: 1000;
+  }
+}
+
+/* Ensure calendar works well in event cards */
+.event-card .calendar-component {
+  flex-shrink: 0;
+}
+
+.event-card .calendar-toggle {
+  white-space: nowrap;
+}
+
+/* Enhanced Mobile Responsiveness for All Devices */
+
+/* Extra Small Phones (320px - 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .card {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+  }
+  
+  .btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    min-height: 44px; /* Touch-friendly */
+  }
+  
+  .btn-lg {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-base);
+  }
+  
+  .event-card {
+    padding: var(--spacing-sm);
+  }
+  
+  .event-card h3 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 44px;
+    padding: var(--spacing-md);
+  }
+  
+  .navbar {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .nav-brand {
+    font-size: var(--font-size-lg);
+  }
+  
+  /* Calendar button mobile optimization */
+  .calendar-component .btn {
+    width: 100%;
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    min-height: 48px;
+  }
+  
+  /* Profile page mobile optimization */
+  .profile-picture-placeholder {
+    width: 120px;
+    height: 120px;
+    font-size: 2rem;
+  }
+  
+  /* Event detail page mobile */
+  .event-detail-header h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .event-meta {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  /* Grid layouts mobile optimization */
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .form-row .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Navigation improvements */
+  .nav-content {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    min-height: auto;
+    padding: var(--spacing-md) 0;
+  }
+  
+  .nav-brand {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    width: 100%;
+    align-items: center;
+  }
+  
+  .nav-links li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+  }
+  
+  .profile-dropdown {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .profile-button {
+    width: auto !important;
+    min-width: 200px !important;
+    justify-content: center !important;
+  }
+}
+
+/* Small Tablets and Large Phones (481px - 640px) */
+@media (min-width: 481px) and (max-width: 640px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .calendar-component .btn {
+    width: auto;
+    min-width: 160px;
+  }
+}
+
+/* Tablets (641px - 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .filters-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+/* Large Tablets and Small Laptops (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .container {
+    max-width: 95%;
+  }
+  
+  .hero-section {
+    padding: var(--spacing-2xl) 0;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    min-height: 44px;
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  .btn:hover {
+    transform: none;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .card:hover {
+    transform: none;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .event-card:hover {
+    transform: none;
+  }
+  
+  .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Make calendar button more touch-friendly */
+  .calendar-component .btn {
+    min-height: 48px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-weight: 500;
+  }
+}
+
+/* Landscape Phone Optimization */
+@media (max-width: 896px) and (orientation: landscape) and (max-height: 500px) {
+  .hero-section {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .navbar {
+    padding: var(--spacing-xs) 0;
+  }
+  
+  .nav-brand {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .event-card,
+  .card {
+    border-width: 0.5px;
+  }
+  
+  .btn {
+    border-width: 1.5px;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .card:hover,
+  .btn:hover,
+  .event-card:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .navbar,
+  .btn,
+  .calendar-component,
+  .filters-row {
+    display: none !important;
+  }
+  
+  .card {
+    border: 1px solid #000;
+    break-inside: avoid;
+    box-shadow: none;
+  }
+  
+  .event-card {
+    page-break-inside: avoid;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .form-input,
+  .form-select,
+  .form-textarea {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: var(--radius-md);
+  }
+  
+  .btn {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: var(--radius-md);
+  }
+}
+
+/* Android Chrome specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .form-select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23666' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 0.65rem auto;
+  }
+}

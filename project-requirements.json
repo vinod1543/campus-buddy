@@ -1,0 +1,93 @@
+{
+  "project_title": "Campus Event Buddy",
+  "problem_statement": "Students often miss campus events because information is scattered across WhatsApp groups, notice boards, and word of mouth. There is no centralized, searchable system to view and track events.",
+  "proposed_solution": "A centralized web platform where students can discover, register for, and track campus events, and organizers can create and manage events. The system provides an event feed, registration tracking, personal calendars, and email reminders.",
+  "users_and_roles": {
+    "student": "Browse events, search/filter, view details, register, view 'My Events', add to calendar, receive reminders.",
+    "admin": "Create, update, and delete events; set capacity; view list of registered participants."
+  },
+  "core_features": {
+    "auth_and_roles": "JWT-based auth with student and admin roles.",
+    "event_discovery": "Upcoming events list with search and filter by type (technical, cultural, sports, academic, club).",
+    "event_details": "Title, description, type, date/time, venue, organizer, registration link; poster optional.",
+    "registration": "Students register for events; system tracks registration status and attendee count vs capacity.",
+    "my_events": "Student can view all registered events in one place.",
+    "calendar_integration": "Downloadable ICS file/link to add events to personal calendars.",
+    "reminders": "Email reminders sent 24 hours (and optionally 1 hour) before an event.",
+    "admin_dashboard": "Event CRUD, capacity, visibility, and participants list."
+  },
+  "ui_design_principles": {
+    "human_centered": "Natural language, conversational tone, friendly micro-interactions",
+    "minimal": "Clean typography, plenty of whitespace, focused content hierarchy",
+    "modern": "Subtle shadows, rounded corners, soft colors, smooth transitions",
+    "accessible": "High contrast, clear focus states, readable fonts, mobile-first",
+    "personal": "Warm greeting messages, contextual help, smart defaults"
+  },
+  "out_of_scope_for_mvp": [
+    "Personalized recommendations/AI",
+    "QR code check-in",
+    "Social wall, photos, comments, ratings",
+    "Friend activity sharing",
+    "Push notifications (web/mobile)"
+  ],
+  "tech_stack": {
+    "frontend": "React (Vite) with React Router and Axios",
+    "backend": "Node.js + Express",
+    "database": "MongoDB (Mongoose ODM)",
+    "auth": "JWT (access/refresh tokens)",
+    "email": "Nodemailer (SMTP) for reminders",
+    "scheduling": "node-cron for reminder jobs",
+    "styling": "CSS Modules or styled-components for human-centered design"
+  },
+  "data_model": {
+    "User": {
+      "fields": ["name", "email (unique)", "password_hash", "role: student|admin", "interests (optional)"],
+      "notes": "Seed at least one admin user."
+    },
+    "Event": {
+      "fields": ["title", "description", "type", "startAt", "endAt (optional)", "venue", "organizer", "capacity (optional)", "registrationUrl (optional)", "posterUrl (optional)", "visibility: public|private"],
+      "notes": "Poster is optional for MVP."
+    },
+    "Registration": {
+      "fields": ["eventId -> Event", "userId -> User", "status: registered|cancelled", "timestamps"],
+      "constraints": "Unique (eventId, userId)."
+    }
+  },
+  "workflow": [
+    "Requirements: confirm fields, roles, and reminder timings.",
+    "Design: Use Case and ER diagrams for Users, Events, Registrations.",
+    "Implementation: Auth, event feed (search/filter), details, registration, My Events, reminders, admin CRUD.",
+    "Testing: Registration flow, capacity checks, reminder timing, conflict-free ICS.",
+    "Deployment: Frontend and backend on separate services; MongoDB Atlas."
+  ],
+  "acceptance_criteria": [
+    "Students can sign up/sign in and view upcoming events with search/filter.",
+    "Event detail page shows all core fields and current registration count.",
+    "Students can register/unregister; duplicate registrations are prevented.",
+    "My Events lists all registered events and provides an ICS download.",
+    "Email reminders are sent at least 24 hours before event start.",
+    "Admins can create, edit, and delete events and view participants."
+  ],
+  "example_use_case": {
+    "student_input": "Interests: Tech + Sports (optional metadata)",
+    "event_feed": [
+      "Hackathon – 15 Sept, Auditorium",
+      "Football Tournament – 20 Sept, Ground"
+    ],
+    "actions": [
+      "Student registers for Hackathon",
+      "Adds it to calendar (ICS)",
+      "Receives email reminder 24h before"
+    ],
+    "organizer_dashboard": "Shows current registrations and allows editing event details"
+  },
+  "ui_examples": {
+    "welcome_message": "Hi there! 👋 Ready to discover amazing campus events?",
+    "empty_state": "No events yet, but great things are coming! Check back soon.",
+    "success_message": "You're all set! 🎉 We'll remind you about this event.",
+    "loading_state": "Finding the perfect events for you...",
+    "color_palette": "Warm blues, soft greens, gentle grays, with pops of orange for CTAs",
+    "typography": "Modern sans-serif, readable sizes, good line spacing",
+    "components": "Rounded cards, subtle hover effects, clear button states"
+  }
+}
